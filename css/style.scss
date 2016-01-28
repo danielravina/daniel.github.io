@@ -14,8 +14,13 @@
 $color-green: #27ae60;
 $color-orange: #f1c40f;
 $color-blue: #3498db;
-$color-violet: #400080;
+$color-carrot: #e67e22;
+$color-bread: #F0B453;
 
+$color-bread-border: #CA8138;
+$color-ham: #EA5A60;
+$color-lettuce: #7AB100;
+$color-cheese: #FFDE00;
 *,
 *:before,
 *:after {
@@ -102,6 +107,13 @@ body {
       transform: rotateY(0);
     }
   }
+  &.open {
+    transform-origin: 50% 0;
+    transform-style: preserve-3d;
+    animation: open 1s;
+  }
+
+
   &__content {
     height: 100%;
     width: 100%;
@@ -114,18 +126,6 @@ body {
       left: 0;
       width: 2.5vmin;
       height: 10vmin;
-    }
-    &:before {
-      background: $color-green;
-      top: 0;
-      border-radius: 1.5vmin 0 0 0;
-      border-bottom: 12vmin solid $color-orange;
-    }
-    &:after {
-      background: $color-violet;
-      bottom: 0;
-      border-radius: 0 0 0 1.5vmin;
-      border-top: 10vmin solid $color-blue;
     }
   }
 }
@@ -168,8 +168,8 @@ body {
     border-bottom: 12vmin solid $color-orange;
   }
   &:after {
-    background: $color-violet;
-    bottom: 0;
+    background: $color-carrot;
+#e67e22;
     border-radius: 0 0 1vmin 0;
     border-top: 10vmin solid $color-blue;
   }
@@ -208,37 +208,41 @@ ul.contact {
     align-items: stretch;
     display: flex;
     > a {
+      text-transform: uppercase;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      font-size: 2.5vmin;
       text-decoration: none;
       outline: none;
-      color: white;
-      font-size: 3vmin;
+      color: #333;
+      font-size: 2vmin;
       padding-left: 5vmin;
       padding-right: 2.5vmin;
       cursor: pointer;
-      transition: padding 300ms;
-      &:hover,
-      &:focus {
-        padding-right: 4vmin;
-        padding-left: 7vmin
-      }
+      width: 30vmin;
+      border-left: none !important;
     }
     &:first-child > a {
-      background: $color-green;
-      border-radius: 1vmin 0 0;
+      border: 5px solid $color-bread-border;
+      background: $color-bread;
+      border-radius: 1vmin 7vmin 1vmin 0;
     }
     &:nth-child(2) > a {
-      background: $color-orange;
+      border-radius: 0 1vmin 1vmin 0;
+      background: $color-cheese;
     }
     &:nth-child(3) > a {
-      background: $color-blue;
+      border-radius: 0 1vmin 1vmin 0;
+      background: $color-ham;
     }
     &:nth-child(4) > a {
-      background: $color-violet;
-      border-radius: 0 0 0 1vmin;
+      border-radius: 0 1vmin 1vmin 0;
+      background: $color-lettuce;
+    }
+    &:nth-child(5) > a {
+      border: 5px solid $color-bread-border;
+      background: $color-bread;
+      border-radius: 0 1vmin 7vmin 1vmin;
     }
   }
 }
@@ -297,4 +301,13 @@ span.mirror {
     0% { opacity:1; }
     50% { opacity:0; }
     100% { opacity:1; }
+}
+
+@keyframes open{
+  0%, 100% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  30%, 60% {
+   transform: rotateX(12deg) rotateY(0deg);
+  }
 }

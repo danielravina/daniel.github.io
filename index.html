@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Daniel Ravina</title>
-  <link rel="stylesheet" href="style/style.css">
+  <title>Sandwich Apps</title>
+  <link rel="stylesheet" href="css/style.css">
   <script>
     // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -30,7 +30,7 @@
     <div class="text">
       <header class="head">
         <h1 class="head__name">
-          <b class="name__fn">Daniel</b> Ravina
+          <b class="name__fn">Sandwich</b> Apps
         </h1>
         <p class="head__subtitle" id="typer"></p>
       </header>
@@ -40,12 +40,13 @@
   <div class="card card--back">
     <div class="card__content">
       <ul class="contact">
-        <li><a href="">Link here asdasd</a></li>
-        <li><a href="">Link here asd</a></li>
-        <li><a href="">Link </a></li>
-        <li><a href="">Lorem ipsum dolor</a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+      </ul>
     </div>
+    <a href="" id="see">see</a>
   </div>
+
 
     <div class="card-shadow"></div>
 
@@ -54,30 +55,42 @@
     $("#typer").typed({
       strings: [
         "web development",
-        "interactive",
-        "mobile",
-        "data driven",
+        "Mobile apps",
+        "web design",
+        "UX/UI",
+        "Information Security",
       ],
       typeSpeed: 1,
       backDelay: 2000,
       loop: true,
       cursorChar: "_",
-      startDelay: 2000
+      startDelay: 1000
     });
   </script>
 
   <script>
-  $(document).mouseup(function(e) {
-  if (e.which != 1) return false;
+    var working = false;
+    $("#see").click(function(e){
+      e.preventDefault()
+      if(working == false) {
+        $(".card").toggleClass('open');
+      }
+      working = true;
+      setTimeout(function(){
+        $(".card").removeClass('open');
+        working = false;
+      }, 1000)
+    })
 
-  $('.card--front').toggleClass('card--front--flip');
-  $('.card--back').toggleClass('card--back--flip');
-});
+    $(document).mouseup(function(e) {
+      if (e.which != 1) return false;
+      $('.card--front').toggleClass('card--front--flip');
+      $('.card--back').toggleClass('card--back--flip');
+    });
 
-
-$('a').mouseup(function(e) {
-  e.stopPropagation();
-});
+    $('a').mouseup(function(e) {
+      e.stopPropagation();
+    });
 
   </script>
 </body>
