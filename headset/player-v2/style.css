@@ -11,6 +11,9 @@ p, h1, body {
 .info {
   text-align: center;
   padding: 8px 0;
+  position: absolute;
+  bottom: 0;
+  left: 11px;
 }
 
 .info a {
@@ -22,4 +25,12 @@ p, h1, body {
 iframe {
   width: 100%;
   height: 100%;
+}
+
+.player-wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
 }
