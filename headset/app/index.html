@@ -12,8 +12,9 @@
   <script src="https://js.stripe.com/v3/" async></script>
   <script>
     try {
-      const { ipcRenderer } = require('electron');
+      const { shell, ipcRenderer } = require('electron');
       window.ipcRenderer = ipcRenderer
+      window.shell = shell
 
       var bundle = document.createElement('script');
       bundle.setAttribute('src', 'bundle.js');
